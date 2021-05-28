@@ -1,10 +1,13 @@
-package com.example.mvvm_test_application;
+package com.example.mvvm_test_application.withFrag;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+
+import com.example.mvvm_test_application.withFrag.Note;
+import com.example.mvvm_test_application.withFrag.NoteRepository;
 
 import java.util.List;
 

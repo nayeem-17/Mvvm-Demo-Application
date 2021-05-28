@@ -1,8 +1,5 @@
 package com.example.mvvm_test_application;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +8,9 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AddNoteActivity extends AppCompatActivity {
     public static final String EXTRA_TITLE =
@@ -27,7 +27,7 @@ public class AddNoteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_note);
+//        setContentView(R.layout.activity_add_note);
 
         titleEditText = findViewById(R.id.edit_title);
         descriptionEditText = findViewById(R.id.edit_description);

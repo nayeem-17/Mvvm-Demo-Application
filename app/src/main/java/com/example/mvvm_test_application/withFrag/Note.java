@@ -1,4 +1,4 @@
-package com.example.mvvm_test_application;
+package com.example.mvvm_test_application.withFrag;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

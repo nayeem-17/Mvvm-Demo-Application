@@ -1,4 +1,4 @@
-package com.example.mvvm_test_application;
+package com.example.mvvm_test_application.withFrag;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 //import org.jetbrains.annotations.NotNull;
+
+import com.example.mvvm_test_application.R;
 
 import java.util.ArrayList;
 import java.util.List;
