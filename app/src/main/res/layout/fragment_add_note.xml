@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".withFrag.AddNoteFragment">
+    tools:context=".ui.fragment.AddNoteFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -12,8 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp"
-        tools:context=".AddNoteActivity">
+        android:padding="24dp">
 
         <EditText
             android:id="@+id/edit_title"

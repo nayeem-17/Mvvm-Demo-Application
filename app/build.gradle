@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
+    id 'androidx.navigation.safeargs'
 }
+//apply plugin: "androidx.navigation.safeargs"
 
 android {
     compileSdkVersion 30
@@ -29,6 +31,8 @@ android {
 }
 
 dependencies {
+
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.navigation:navigation-fragment:2.3.5'
     implementation 'androidx.navigation:navigation-ui:2.3.5'

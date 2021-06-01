@@ -1,4 +1,4 @@
-package com.example.mvvm_test_application.withFrag;
+package com.example.mvvm_test_application.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 //import org.jetbrains.annotations.NotNull;
 
 import com.example.mvvm_test_application.R;
+import com.example.mvvm_test_application.database.model.Note;
 
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * The type Note adapter.
+ */
 public class NoteAdapter extends ListAdapter<Note, NoteAdapter.Noteholder> {
     private OnItemClickListener onItemClickListener;
     private static final DiffUtil.ItemCallback<Note> DIFF_CALLBACK = new DiffUtil.ItemCallback<Note>() {
@@ -33,6 +34,9 @@ public class NoteAdapter extends ListAdapter<Note, NoteAdapter.Noteholder> {
         }
     };
 
+    /**
+     * Instantiates a new Note adapter.
+     */
     public NoteAdapter() {
         super(DIFF_CALLBACK);
     }
@@ -52,16 +56,30 @@ public class NoteAdapter extends ListAdapter<Note, NoteAdapter.Noteholder> {
         holder.priorityTextView.setText(String.valueOf(currentNote.getPriority()));
     }
 
+    /**
+     * Gets note.
+     *
+     * @param index the index
+     * @return the note
+     */
     public Note getNote(int index) {
         return getItem(index);
     }
 
+    /**
+     * The type Noteholder.
+     */
     class Noteholder extends RecyclerView.ViewHolder {
 
         private TextView priorityTextView;
         private TextView descriptionTextView;
         private TextView titleTextView;
 
+        /**
+         * Instantiates a new Noteholder.
+         *
+         * @param itemView the item view
+         */
         public Noteholder(@NonNull View itemView) {
             super(itemView);
             priorityTextView = itemView.findViewById(R.id.text_view_priority);
@@ -76,10 +94,23 @@ public class NoteAdapter extends ListAdapter<Note, NoteAdapter.Noteholder> {
         }
     }
 
+    /**
+     * The interface On item click listener.
+     */
     public interface OnItemClickListener {
+        /**
+         * On item click.
+         *
+         * @param note the note
+         */
         void onItemClick(Note note);
     }
 
+    /**
+     * Sets on item click listener.
+     *
+     * @param onItemClickListener the on item click listener
+     */
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }

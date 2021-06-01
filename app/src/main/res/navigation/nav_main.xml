@@ -6,30 +6,44 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.mvvm_test_application.withFrag.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        android:name="com.example.mvvm_test_application.ui.fragment.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_addNoteFragment"
             app:destination="@id/addNoteFragment" />
         <action
             android:id="@+id/action_homeFragment_to_editNoteFragment"
             app:destination="@id/editNoteFragment" />
+        <argument
+            android:name="title"
+            android:defaultValue="DEFAULT_TITLE"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="description"
+            android:defaultValue="def_description"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="priority"
+            android:defaultValue="5"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/addNoteFragment"
-        android:name="com.example.mvvm_test_application.withFrag.AddNoteFragment"
-        android:label="fragment_add_note"
-        tools:layout="@layout/fragment_add_note" >
+        android:name="com.example.mvvm_test_application.ui.fragment.AddNoteFragment"
+        android:label="Add Note"
+        tools:layout="@layout/fragment_add_note">
         <action
             android:id="@+id/action_addNoteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/editNoteFragment"
-        android:name="com.example.mvvm_test_application.withFrag.EditNoteFragment"
-        android:label="fragment_edit_note"
-        tools:layout="@layout/fragment_edit_note" >
+        android:name="com.example.mvvm_test_application.ui.fragment.EditNoteFragment"
+        android:label="Edit Note"
+        tools:layout="@layout/fragment_edit_note">
         <action
             android:id="@+id/action_editNoteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />

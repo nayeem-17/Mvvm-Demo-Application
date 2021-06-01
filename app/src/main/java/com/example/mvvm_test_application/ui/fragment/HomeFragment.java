@@ -1,42 +1,48 @@
-package com.example.mvvm_test_application.withFrag;
+package com.example.mvvm_test_application.ui.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mvvm_test_application.R;
+import com.example.mvvm_test_application.adapter.NoteAdapter;
+import com.example.mvvm_test_application.ui.viewmodel.NoteViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
+/**
+ * The type Home fragment.
+ */
 public class HomeFragment extends Fragment {
 
-    public static final String EXTRA_ID = "com.example.mvvm_test_application_EXTRA_ID";
     private NoteViewModel noteViewModel;
-    public static final int ADD_NOTE_REQUEST = 1;
-    private ActivityResultLauncher<Intent> addNoteActivityResultLauncher;
-    private ActivityResultLauncher<Intent> editNoteActivityResultLauncher;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(
+            LayoutInflater inflater,
+            ViewGroup container,
+            Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
@@ -51,18 +57,22 @@ public class HomeFragment extends Fragment {
 
         noteViewModel = new ViewModelProvider(requireActivity()).get(NoteViewModel.class);
 
-        noteViewModel.getAllNotes().observe(requireActivity(), notes -> {
-            adapter.submitList(notes);
-            Toast.makeText(getContext(), "AAAAAAAAAAAAAAAAAAA", Toast.LENGTH_SHORT).show();
-        });
+        noteViewModel.getAllNotes().observe(requireActivity(), adapter::submitList);
 
-//        NavController navController = Navigation.findNavController(view);
+        NavController navController = Navigation.findNavController(view);
 
         FloatingActionButton addButton = view.findViewById(R.id.add_button);
-
+        adapter.setOnItemClickListener(note -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("title", note.getTitle());
+            bundle.putString("description", note.getDescription());
+            bundle.putInt("priority", note.getPriority());
+            bundle.putInt("id", note.getId());
+            navController.navigate(R.id.action_homeFragment_to_editNoteFragment, bundle, null, null);
+        });
         addButton.setOnClickListener(v -> {
             Toast.makeText(getContext(), "Yo Man!!!", Toast.LENGTH_SHORT).show();
-//            navController.navigate(R.id.action_homeFragment_to_addNoteFragment);
+            navController.navigate(R.id.action_homeFragment_to_addNoteFragment);
         });
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
@@ -80,5 +90,21 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getContext(), "Note Deleted!!!", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.delete_item_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.delete_all_notes) {
+            noteViewModel.deleteAllNotes();
+            Toast.makeText(getContext(), "All Notes Deleted", Toast.LENGTH_SHORT).show();
+            return true;
+        } else
+            return super.onOptionsItemSelected(item);
     }
 }
