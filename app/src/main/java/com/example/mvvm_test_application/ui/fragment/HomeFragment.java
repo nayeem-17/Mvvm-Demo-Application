@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mvvm_test_application.R;
 import com.example.mvvm_test_application.adapter.NoteAdapter;
+import com.example.mvvm_test_application.databinding.FragmentHomeBinding;
 import com.example.mvvm_test_application.ui.viewmodel.NoteViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -31,6 +32,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class HomeFragment extends Fragment {
 
     private NoteViewModel noteViewModel;
+    FragmentHomeBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,8 @@ public class HomeFragment extends Fragment {
             LayoutInflater inflater,
             ViewGroup container,
             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
     @Override
@@ -61,7 +64,7 @@ public class HomeFragment extends Fragment {
 
         NavController navController = Navigation.findNavController(view);
 
-        FloatingActionButton addButton = view.findViewById(R.id.add_button);
+        FloatingActionButton addButton = binding.addButton;
         adapter.setOnItemClickListener(note -> {
             Bundle bundle = new Bundle();
             bundle.putString("title", note.getTitle());
