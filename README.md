@@ -7,13 +7,13 @@
 - [Developer guide](https://developer.android.com/guide/navigation/navigation-getting-started)
 - [Drawer layout hide/show](https://stackoverflow.com/questions/34394942/how-to-disable-or-hide-a-drawer-layout-from-fragment-android/49897977)
 ### For making phone call
-- https://stackoverflow.com/questions/4275678/how-to-make-a-phone-call-using-intent-in-android
-- https://stackoverflow.com/questions/66551781/android-onrequestpermissionsresult-is-deprecated-are-there-any-alternatives
-- https://developer.android.com/training/permissions/requesting
+- [How to make a phone call using intent in Android](https://stackoverflow.com/questions/4275678/how-to-make-a-phone-call-using-intent-in-android)
+- [onRequestPermissionsResult() is deprecated.](https://stackoverflow.com/questions/66551781/android-onrequestpermissionsresult-is-deprecated-are-there-any-alternatives)
+- [Requesting permissions](https://developer.android.com/training/permissions/requesting)
  
 
 ### Done button
-- https://stackoverflow.com/questions/2004344/how-do-i-handle-imeoptions-done-button-click
+- [Implement done button click](https://stackoverflow.com/questions/2004344/how-do-i-handle-imeoptions-done-button-click)
 
 ### Welcome message
 - [How to get app install time from android](https://stackoverflow.com/questions/2831333/how-to-get-app-install-time-from-android) 
