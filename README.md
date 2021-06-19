@@ -14,3 +14,10 @@
 
 ### Done button
 - https://stackoverflow.com/questions/2004344/how-do-i-handle-imeoptions-done-button-click
+
+### Welcome message
+- [How to get app install time from android](https://stackoverflow.com/questions/2831333/how-to-get-app-install-time-from-android) 
+- [Introduce first-time users to your app](https://developer.android.com/training/tv/playback/onboarding)
+- [Run Activity only for First time after installation of app Android](https://stackoverflow.com/questions/14777397/run-activity-only-for-first-time-after-installation-of-app-android)
+- [Show Activity Once when Application Running for the First Time](https://youtu.be/gQ8_Lo45Q6c)
+- [Save key-value data](https://developer.android.com/training/data-storage/shared-preferences)
