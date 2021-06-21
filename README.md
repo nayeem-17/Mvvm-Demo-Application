@@ -21,3 +21,6 @@
 - [Run Activity only for First time after installation of app Android](https://stackoverflow.com/questions/14777397/run-activity-only-for-first-time-after-installation-of-app-android)
 - [Show Activity Once when Application Running for the First Time](https://youtu.be/gQ8_Lo45Q6c)
 - [Save key-value data](https://developer.android.com/training/data-storage/shared-preferences)
+
+### Errors
+- [cannot fit requested classes in a single dex file](https://stackoverflow.com/questions/48249633/errorcannot-fit-requested-classes-in-a-single-dex-file-try-supplying-a-main-dex)
